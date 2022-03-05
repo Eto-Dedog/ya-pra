@@ -72,3 +72,13 @@
   line-height: 16px;
   margin: 0 0 5px;
 }
+
+@media (max-width:380px) {
+  .page__catalog{
+    flex-direction: column;
+    width: 95%;
+  }
+  .catalog__card{
+    text-align: center;
+  }
+}
