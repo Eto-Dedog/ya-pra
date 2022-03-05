@@ -1,5 +1,10 @@
 function getDomNodesBySelector(selector) {
-    // Ваш код
+    // Ваш код из прошлого задания
   }
   
   console.log(getDomNodesBySelector('.price-value'));
+
+function applyDiscount() {
+  // Ваш код
+}
+  
