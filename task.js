@@ -13,7 +13,6 @@ function applyDiscount() {
   let discountBtn = document.querySelector('.total__button')
   let totalSum = document.querySelector('.total-price-value')
   let gg = getDomNodesBySelector('.price-value')
-  let totalPrice = document.querySelector('.total__prices')
 
   function endSum () {
     sum = totalSum.textContent * 0.15
