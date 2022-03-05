@@ -16,7 +16,8 @@
 }
 
 .catalog {
-  /*  Ваш код  */
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .page__catalog {
