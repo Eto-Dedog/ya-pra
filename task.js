@@ -41,13 +41,35 @@ function template(item) {
   const newElement = document.createElement('li');
   newElement.classList.add('search__finding-item');
   newElement.innerHTML = `
-      <p class="search__finding-name">
+      <a href=${item.html_url} class="search__finding-name" target="_blank">
           ${item.full_name}
-      </p>
+      </a>
+      <span class="search__finding-description">
+          ${item.description}
+      </span>
 	`;
   return newElement;
 }
 
 async function onSubmit(event) {
-  //ваш код из предыдущего задания
+  event.preventDefault();
+  onSubmitStart();
+  await fetch(
+    `https://api.nomoreparties.co/github-search?q=${event.target.elements['title'].value}`
+  )
+    .then(r => r.json())
+    .then(data => {
+      const { items, total_count } = data;
+      if (total_count) {
+        renderCount(total_count);
+        items.forEach(item => resultsContainer.appendChild(template(item)));
+      } else {
+        renderEmptyResults();
+      }
+    })
+    .catch(() => {
+      renderError();
+    });
 }
+
+form.addEventListener('submit', onSubmit);
