@@ -49,5 +49,5 @@ function template(item) {
 }
 
 async function onSubmit(event) {
-  // ваш код
+  //ваш код из предыдущего задания
 }
