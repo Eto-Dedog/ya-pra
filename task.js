@@ -24,8 +24,7 @@ function applyDiscount() {
       endSum = element.textContent - sumProc
       element.textContent = endSum.toFixed(0)
     });
-    discountBtn.style.display = 'none'
-    totalPrice.style.display = 'flex'
+    discountBtn.style.visibility = "hidden";
   }
   discountBtn.addEventListener('click', endSum)
 }
