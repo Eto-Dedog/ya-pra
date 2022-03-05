@@ -49,5 +49,27 @@ function template(item) {
 }
 
 async function onSubmit(event) {
-  // ваш код
+  let input = document.querySelector('.search__textfield')
+  event.preventDefault();
+  onSubmitStart();
+  await fetch(`https://api.nomoreparties.co/github-search?q=${input.value}`)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      if (data.total_count === 0) {
+        renderEmptyResults();
+      } else {
+        console.log("data", data.items);
+        renderCount(data.total_count);
+        data.items.forEach(item => {
+          resultsContainer.appendChild(template(item));
+        });
+      }
+    })
+    .catch(() => {
+      renderError();
+    });
 }
+
+form.addEventListener("submit", onSubmit);
