@@ -59,9 +59,9 @@ async function onSubmit(event) {
   )
     .then(response => response.json())
     .then(data => {
-      const { items, total_count } = data;
-      if (total_count) {
-        renderCount(total_count);
+      const { items, count } = data;
+      if (count) {
+        renderCount(count);
         items.forEach(item => resultsContainer.appendChild(template(item)));
       } else {
         renderEmptyResults();
